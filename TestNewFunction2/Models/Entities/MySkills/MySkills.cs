@@ -1,5 +1,8 @@
-﻿namespace TestNewFunction2.Models.Entities.MySkills
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace TestNewFunction2.Models.Entities.MySkills
 {
+    [Keyless]
     public class MySkills
     {
         public int Id { get; set; }
