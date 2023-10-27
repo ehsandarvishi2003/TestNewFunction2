@@ -1,5 +1,8 @@
-﻿namespace TestNewFunction2.Models.Entities.Experience
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace TestNewFunction2.Models.Entities.Experience
 {
+    [Keyless]
     public class Experience
     {
         public string ExprienceTitle { get; set; }
