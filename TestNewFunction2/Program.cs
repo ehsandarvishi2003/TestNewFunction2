@@ -1,3 +1,10 @@
+using Autofac.Core;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ServiceStack;
+using TestNewFunction2.Controllers;
+using TestNewFunction2.Models.ProjectDBContex;
+
 namespace TestNewFunction2
 {
     public class Program
@@ -8,6 +15,7 @@ namespace TestNewFunction2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<ProjectDBContex>();
 
             var app = builder.Build();
 

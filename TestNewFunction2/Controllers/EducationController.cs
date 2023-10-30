@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TestNewFunction2.Models.Entities.Education;
 using TestNewFunction2.Models.ProjectDBContex;
 
@@ -8,12 +9,11 @@ namespace TestNewFunction2.Controllers
     public class EducationController : Controller
     {
         #region listOfEducations
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         } 
-
-        //ProjectDBContex _contexDB = new ProjectDBContex();
 
         private ProjectDBContex _contex;
 
@@ -22,29 +22,29 @@ namespace TestNewFunction2.Controllers
             _contex = contex;
         }
 
-        public IActionResult ListOfEducatins()
+        public async Task <IActionResult> ListOfEducatins()
         {
-            List<Education>educations=_contex.Education.ToList();
+            List<Education>educations=await _contex.Education.ToListAsync();
 
             return View();
         }
         #endregion
 
         #region CreateAnEducation
-        public IActionResult CreateAnEducation()
+        public async Task<IActionResult> CreateAnEducation()
         {
-            
-            Education educationDataBase = new Education()
-            {
-                EducationTitle = "Sepejr",
-                EducationDuration="2023",
-                Description="Sepehr"
-            };
 
-            _contex.Education.Add(educationDataBase);
-            _contex.SaveChanges();
+            Education educationDataBase = new Education();
 
-            return View();
+            educationDataBase.EducationDuration = "2020-2022";
+            educationDataBase.EducationTitle = "Militery";
+            educationDataBase.Description = "Is not bad at all";
+            educationDataBase.Id = 3;
+
+            await _contex.Education.AddAsync(educationDataBase);
+            await _contex.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ListOfEducatins));
 
         }
         #endregion
