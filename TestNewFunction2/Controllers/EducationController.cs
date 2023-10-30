@@ -33,27 +33,7 @@ namespace TestNewFunction2.Controllers
         #region CreateAnEducation
         public IActionResult CreateAnEducation()
         {
-            List<Education> educasionList = new List<Education>();
-
-            Education education = new Education()
-            {
-                Id = 1,
-                EducationTitle = "Master",
-                EducationDuration = "2012",
-                Description = "Degree"
-            };
-
-            educasionList.Add(education);
-
-            educasionList.Add(new Education()
-            {
-                Id = 2,
-                EducationTitle = "Master",
-                EducationDuration = "2012",
-                Description = "Degree"
-            });
-
-            educasionList.Add(education);
+            
             Education educationDataBase = new Education()
             {
                 EducationTitle = "Sepejr",
@@ -61,7 +41,7 @@ namespace TestNewFunction2.Controllers
                 Description="Sepehr"
             };
 
-            _contex.Education.Add(education);
+            _contex.Education.Add(educationDataBase);
             _contex.SaveChanges();
 
             return View();
