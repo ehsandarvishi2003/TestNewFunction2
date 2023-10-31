@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TestNewFunction2.Models.Entities.Education
 {
-    [Keyless]
+
     public class Education
     {
+
         [Key]
         public int Id { get; set; }
         

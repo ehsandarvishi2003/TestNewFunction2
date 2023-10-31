@@ -30,7 +30,7 @@ namespace TestNewFunction2.Controllers
         }
         #endregion
 
-        #region CreateAnEducation
+         #region CreateAnEducation
         public async Task<IActionResult> CreateAnEducation()
         {
 
@@ -39,7 +39,6 @@ namespace TestNewFunction2.Controllers
             educationDataBase.EducationDuration = "2020-2022";
             educationDataBase.EducationTitle = "Militery";
             educationDataBase.Description = "Is not bad at all";
-            educationDataBase.Id = 3;
 
             await _contex.Education.AddAsync(educationDataBase);
             await _contex.SaveChangesAsync();
@@ -47,6 +46,20 @@ namespace TestNewFunction2.Controllers
             return RedirectToAction(nameof(ListOfEducatins));
 
         }
+        #endregion
+
+        #region DeleteAnEducation 
+
+        public async Task<IActionResult> DeleteAnEducation()
+        {
+            Education? education1 = await _contex.Education.FirstOrDefaultAsync(p => p.Id == 1);
+
+            _contex.Education.Remove(education1);
+            await _contex.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ListOfEducatins));
+        }
+
         #endregion
     }
 }
