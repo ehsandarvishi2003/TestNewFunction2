@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestNewFunction2.Models.ProjectDBContex;
 
@@ -10,9 +11,11 @@ using TestNewFunction2.Models.ProjectDBContex;
 namespace TestNewFunction2.Migrations
 {
     [DbContext(typeof(ProjectDBContex))]
-    partial class ProjectDBContexModelSnapshot : ModelSnapshot
+    [Migration("20231031092330_testPrimaryKey")]
+    partial class testPrimaryKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

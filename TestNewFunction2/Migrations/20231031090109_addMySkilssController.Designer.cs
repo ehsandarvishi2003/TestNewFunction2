@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestNewFunction2.Models.ProjectDBContex;
 
@@ -10,9 +11,11 @@ using TestNewFunction2.Models.ProjectDBContex;
 namespace TestNewFunction2.Migrations
 {
     [DbContext(typeof(ProjectDBContex))]
-    partial class ProjectDBContexModelSnapshot : ModelSnapshot
+    [Migration("20231031090109_addMySkilssController")]
+    partial class addMySkilssController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,12 +51,6 @@ namespace TestNewFunction2.Migrations
 
             modelBuilder.Entity("TestNewFunction2.Models.Entities.Experience.Experience", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -74,18 +71,13 @@ namespace TestNewFunction2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
                     b.ToTable("Experience");
                 });
 
             modelBuilder.Entity("TestNewFunction2.Models.Entities.MySkills.MySkills", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Percent")
                         .HasColumnType("int");
@@ -93,8 +85,6 @@ namespace TestNewFunction2.Migrations
                     b.Property<string>("SkillTitle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
 
                     b.ToTable("MySkills");
                 });
