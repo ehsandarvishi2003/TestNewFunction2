@@ -30,7 +30,7 @@ namespace TestNewFunction2.Controllers
         }
         #endregion
 
-         #region CreateAnEducation
+        #region CreateAnEducation
         public async Task<IActionResult> CreateAnEducation()
         {
 
@@ -50,9 +50,9 @@ namespace TestNewFunction2.Controllers
 
         #region DeleteAnEducation 
 
-        public async Task<IActionResult> DeleteAnEducation()
+        public async Task<IActionResult> DeleteAnEducation(int educationId)
         {
-            Education? education1 = await _contex.Education.FirstOrDefaultAsync(p => p.Id == 1);
+            Education? education1 = await _contex.Education.FirstOrDefaultAsync(p => p.Id == educationId);
 
             _contex.Education.Remove(education1);
             await _contex.SaveChangesAsync();
@@ -61,5 +61,6 @@ namespace TestNewFunction2.Controllers
         }
 
         #endregion
+
     }
 }
