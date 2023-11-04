@@ -30,7 +30,7 @@ namespace TestNewFunction2.Controllers
         }
         #endregion
 
-         #region CreateAnEducation
+        #region CreateAnEducation
         public async Task<IActionResult> CreateAnEducation()
         {
 
@@ -61,5 +61,6 @@ namespace TestNewFunction2.Controllers
         }
 
         #endregion
+
     }
 }
