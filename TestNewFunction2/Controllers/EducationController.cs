@@ -8,25 +8,25 @@ namespace TestNewFunction2.Controllers
     
     public class EducationController : Controller
     {
+        #region Dependence Injection
+        //Dependence Injection
+        private ProjectDBContex ;
+
+        public EducationController(ProjectDBContex contex)
+        {
+             = contex;
+        }
+        #endregion
+
         #region listOfEducations
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         } 
-
-        private ProjectDBContex _contex;
-
-        public EducationController(ProjectDBContex contex)
-        {
-            _contex = contex;
-        }
-
         public async Task <IActionResult> ListOfEducatins()
         {
-            List<Education>educations=await _contex.Education.ToListAsync();
-
-            return View();
+            
         }
         #endregion
 
