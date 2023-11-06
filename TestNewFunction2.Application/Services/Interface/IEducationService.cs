@@ -1,4 +1,5 @@
 ﻿#region Using
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using ServiceStack;
 using System;
@@ -13,7 +14,8 @@ namespace TestNewFunction2.Application.Services.Interface
 {
     internal interface IEducationService
     {
-        Task<List<Education>> GetListOfEducations()
-        
+        Task<List<Education>> GetListOfEducations();
+        Task CreateAnEducation(Education education);
+        Task DeleteAnEducation(int educationId);
     }
 }
