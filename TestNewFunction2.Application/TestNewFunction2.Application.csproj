@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestNewFunction2\TestNewFunction2.csproj" />
+  </ItemGroup>
+
 </Project>
