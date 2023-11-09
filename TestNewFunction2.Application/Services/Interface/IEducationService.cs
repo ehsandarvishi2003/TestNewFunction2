@@ -13,7 +13,10 @@ namespace TestNewFunction2.Application.Services.Interface
 {
     internal interface IEducationService
     {
-        Task<List<Education>> GetListOfEducations()
-        
+        Task<List<Education>> GetListOfEducations();
+        Task<Education> CreateEducation(Education education);
+        Task<Education> DeleteAnEducation(int educationId);
+
+
     }
 }

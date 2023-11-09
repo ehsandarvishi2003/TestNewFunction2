@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>137bc609-f7b0-4161-9e08-5f23723ade9e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ServiceStack.Interfaces" Version="6.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestNewFunction2.Domain\TestNewFunction2.Domain.csproj" />
+    <ProjectReference Include="..\TestNewFunction2.Infrastructure\TestNewFunction2.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

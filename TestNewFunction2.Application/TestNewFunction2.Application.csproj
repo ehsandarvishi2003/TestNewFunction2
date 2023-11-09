@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestNewFunction2\TestNewFunction2.csproj" />
+    <ProjectReference Include="..\TestNewFunction2.Domain\TestNewFunction2.Domain.csproj" />
+    <ProjectReference Include="..\TestNewFunction2.Infrastructure\TestNewFunction2.Infrastructure.csproj" />
+    <ProjectReference Include="..\TestNewFunction2\TestNewFunction2.Presentation.csproj" />
   </ItemGroup>
 
 </Project>
